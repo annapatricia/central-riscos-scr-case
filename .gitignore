@@ -1,1 +1,6 @@
+outputs/
+__pycache__/
+
 !data/raw/doc3040_sample.csv
+!data/raw/doc3050_sample.csv
+
