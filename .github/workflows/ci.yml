@@ -1,0 +1,5 @@
+      - name: Run tests
+        env:
+          PYTHONPATH: .
+        run: |
+          python -m pytest -q
