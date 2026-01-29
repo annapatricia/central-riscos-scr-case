@@ -8,7 +8,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -28,8 +27,8 @@ jobs:
           PYTHONPATH: .
         run: |
           python -m pytest -q
-      
-       - name: Run DOC3040 validation (sample)
+
+      - name: Run DOC3040 validation (sample)
         continue-on-error: true
         env:
           PYTHONPATH: .
@@ -49,4 +48,3 @@ jobs:
         with:
           name: pipeline-outputs
           path: outputs/
- 
