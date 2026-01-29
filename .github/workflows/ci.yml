@@ -28,3 +28,25 @@ jobs:
           PYTHONPATH: .
         run: |
           python -m pytest -q
+      
+       - name: Run DOC3040 validation (sample)
+        continue-on-error: true
+        env:
+          PYTHONPATH: .
+        run: |
+          python -m src.validation.run_validate_3040 data/raw/doc3040_sample.csv
+
+      - name: Run reconciliation 3040 vs 3050 (sample)
+        continue-on-error: true
+        env:
+          PYTHONPATH: .
+        run: |
+          python -m src.reconciliation.reconcile_3040_3050 data/raw/doc3040_sample.csv data/raw/doc3050_sample.csv
+
+      - name: Upload outputs as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pipeline-outputs
+          path: outputs/
+ 
